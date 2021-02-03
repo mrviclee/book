@@ -1,0 +1,31 @@
+<%= link_to("<< Back to List", books_path, :class => 'back-link') %>
+<div class="subjects new">
+    <h2>Create a New Book</h2>
+    <%= form_for(@book, :url => books_path, :method => 'post') do |f| %>
+        <table summary="Book Information Form Fields">
+            <tr>
+                <th>Title</th>
+                <td><%= f.text_field(:title) %></td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td><%= f.text_field(:author) %></td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td><%= f.select :genre, {"Nonfiction" => "Nonfiction", "Fiction" => "Fiction","Action" => "Action", "Drama" => "Drama", "Sci-fi" => "Sci-fi"}, {:include_blank => true} %></td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td><%= f.text_field(:price) %></td>
+            </tr>
+            <tr>
+                <th>Published Year</th>
+                <td><%= f.select :published, {"2020" => "2020", "2019" => "2019","2018" => "2018", "2017" => "2017", "2016" => "2016", "2015" => "2015", "2014" => "2014"}, {:include_blank => true} %></td>
+            </tr>
+        </table>
+        <div class="form-buttons">
+            <%= f.submit("Submit New Book") %>
+        </div>
+    <% end %>
+</div>
